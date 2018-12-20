@@ -9,7 +9,7 @@ $(document).ready(function(){
         messagingSenderId: "HIDDEN"
     };
     firebase.initializeApp(config);
-
+    //Creating db variable and storing firebase.database() API call
     var db = firebase.database();
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
 //CONSTRUCTOR FUNCTIONS MODULE:
@@ -58,14 +58,19 @@ $(document).ready(function(){
         //onClick Catering Button event listener
         $(document).on('click','#cateringSubmit', function(){
             //user feedback
-            $('#cateringSuccessMessage').append(`<h6> Your order has been sent! We will contact you within 24 hours</h6>`);
+            $('#cateringSuccessMessage').append(`
+                <h6> Your order has been sent! We will contact you within 24 hours</h6>`
+            );
             //inheriting from Catering constructor taking user input 
             var msgBody = new ctrObj (
-                $('#usrname').val().trim(),$('#email').val().trim(),
-                $('#telInput').val().trim(),$('#eventLoc').val().trim(),
+                $('#usrname').val().trim(),
+                $('#email').val().trim(),
+                $('#telInput').val().trim(),
+                $('#eventLoc').val().trim(),
                 $('#eventDate').val().trim(),
                 $('#numGuests').val().trim(),
-                $('#cateringMsg').val().trim());
+                $('#cateringMsg').val().trim()
+            );
             //pushing Object to NoSQL DB
             db.ref('/orders/').push(msgBody);
         });
@@ -93,7 +98,12 @@ $(document).ready(function(){
         //onClick Franchise Inquiry Send Button evetn listener
         $(document).on('click','#franSubmit', function(){
             //inheriting from Franchise Opportunity constructor reading user input 
-            var franMsgBody = new franObj ($('#franName').val().trim(),$('#franEmail').val().trim(),$('#franTelInput').val().trim(),$('#franMessage').val().trim());
+            var franMsgBody = new franObj (
+                $('#franName').val().trim(),
+                $('#franEmail').val().trim(),
+                $('#franTelInput').val().trim(),
+                $('#franMessage').val().trim()
+            );
             //pushing Object to NoSql DB
             db.ref('/franchiseInq/').push(franMsgBody);
         });
@@ -104,45 +114,100 @@ $(document).ready(function(){
 
     $(document).on('click', '#locations', function(event){
         event.preventDefault;
-        console.log($(this).val());
+        //When user selects a specific restaurant or food truck location from the dropdown it will update the dom with associated address,contact info.
         if($(this).val() === 'Halal5 W. Bellfort Truck'){
             $('#contactInfo').html(`
-            <h2 id="contactHeader">Come See Us</h2>
-            <h4>
-            10714 West Bellfort St.<br>
-            Houston, Texas 77099<br>
-            </h4>
-            <h4><span class="glyphicon glyphicon-phone"></span> 832.617.7817</h4>
-            <h4><a href="mailto:info@halal5.com?subject=Question&body=Hi!"><span class="glyphicon glyphicon-envelope"></span> info@halal5.com</a></h4>
-            <h4><a href="#franchise"><span class="glyphicon glyphicon-globe"></span> Franchise Info.</a></h4>
-            <h4><span class="glyphicon glyphicon-time"></span> Hours<br><h5>Sunday - Saturday: 11AM - 12AM</h5></h4>
+                <h2 id="contactHeader">
+                    Come See Us
+                </h2>
+                <h4>
+                    10714 West Bellfort St.<br>
+                    Houston, Texas 77099<br>
+                </h4>
+                <h4>
+                    <span class="glyphicon glyphicon-phone"></span> 
+                    832.617.7817
+                </h4>
+                <h4>
+                    <a href="mailto:info@halal5.com?subject=Question&body=Hi!">
+                        <span class="glyphicon glyphicon-envelope"></span> 
+                        info@halal5.com
+                    </a>
+                </h4>
+                <h4>
+                    <a href="#franchise"><span class="glyphicon glyphicon-globe"></span> 
+                        Franchise Info.
+                    </a>
+                </h4>
+                <h4>
+                    <span class="glyphicon glyphicon-time"></span> 
+                        Hours<br>
+                    <h5>Sunday - Saturday: 11AM - 12AM</h5>
+                </h4>
             `);
         }else if ($(this).val() === 'Halal5 Restaurant') {
                 $('#contactInfo').html(`
-                <h2 id="contactHeader">Come See Us</h2>
+                <h2 id="contactHeader">
+                    Come See Us
+                </h2>
                 <h4>
-                3730-B S Gessner Rd<br>
-                Houston, Texas 77063<br>
+                    3730-B S Gessner Rd<br>
+                    Houston, Texas 77063<br>
                 </h4>
-                <h4><span class="glyphicon glyphicon-phone"></span> 281.974.3918</h4>
-                <h4><a href="mailto:info@halal5.com?subject=Question&body=Hi!"><span class="glyphicon glyphicon-envelope"></span> info@halal5.com</a></h4>
-                <h4><a href="#franchise"><span class="glyphicon glyphicon-globe"></span> Franchise Info.</a></h4>
-                <h4><span class="glyphicon glyphicon-time"></span> Hours<br><h5>Monday - Saturday: 11AM - 10PM | Sunday: Closed</h5></h4>
+                <h4>
+                    <span class="glyphicon glyphicon-phone"></span> 281.974.3918
+                </h4>
+                <h4>
+                    <a href="mailto:info@halal5.com?subject=Question&body=Hi!"><span class="glyphicon glyphicon-envelope"></span> 
+                        info@halal5.com
+                    </a>
+                </h4>
+                <h4>
+                    <a href="#franchise"><span class="glyphicon glyphicon-globe"></span> 
+                        Franchise Info.
+                    </a>
+                </h4>
+                <h4>
+                    <span class="glyphicon glyphicon-time"></span> 
+                    Hours<br>
+                    <h5>Monday - Saturday: 11AM - 10PM | Sunday: Closed</h5>
+                </h4>
             `);
         } else if ($(this).val() === 'Halal5 Harwin Truck'){
             $('#contactInfo').html(`
-            <h2 id="contactHeader">Come See Us</h2>
-            <h4>
-            6820 Harwin Dr.<br>
-            Houston, Texas 77063<br>
-            </h4>
-            <h4><span class="glyphicon glyphicon-phone"></span> 713.998.0837</h4>
-            <h4><a href="mailto:info@halal5.com?subject=Question&body=Hi!"><span class="glyphicon glyphicon-envelope"></span> info@halal5.com</a></h4>
-            <h4><a href="#franchise"><span class="glyphicon glyphicon-globe"></span> Franchise Info.</a></h4>
-            <h4><span class="glyphicon glyphicon-time"></span> Hours<br><h5>Sunday - Saturday: 11AM - 12AM</h5></h4>
+                <h2 id="contactHeader">
+                    Come See Us
+                </h2>
+                <h4>
+                    6820 Harwin Dr.<br>
+                    Houston, Texas 77063<br>
+                </h4>
+
+                <h4>
+                    <span class="glyphicon glyphicon-phone"></span> 713.998.0837
+                </h4>
+
+                <h4>
+                    <a href="mailto:info@halal5.com?subject=Question&body=Hi!">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        info@halal5.com
+                    </a>
+                </h4>
+
+                <h4>
+                    <a href="#franchise"><span class="glyphicon glyphicon-globe"></span> 
+                        Franchise Info.
+                    </a>
+                </h4>
+                <h4>
+                    <span class="glyphicon glyphicon-time"></span> 
+                        Hours<br>
+                    <h5>Sunday - Saturday: 11AM - 12AM</h5>
+                </h4>
             `);
         }
     });
+    
 //PRESENTATION MODULE:
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
     //backstretch.js enables background to maintain its resolution dynamically on all viewport

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Halal5 | Fresh.Fast.Healthy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favIcon.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--GoogleFonts-->
+    <link href="https://fonts.googleapis.com/css?family=Stoke|Poiret+One|Montserrat|Marvel|Work+Sans:900|Six Caps|Michroma" rel="stylesheet">
+    <!--IconAPI-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <!--Custom JS-->
+    <script src="assets/javascripts/email.js"></script>
+    <script src="assets/javascripts/main.js"></script>
+</head>
+<body>
+<!--Header-->
+    <div class="bg">
+        <div class="container-fluid" id="Home">
+            <nav id="nav" class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="200">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#siteNav">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button> 
+                </div>
+                <div id="siteNav" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="index.html#Home">Home</a></li>
+                    <li><a href="index.html#aboutUs">About</a></li>
+                    <li><a href="index.html#menu">Menu</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="https://www.grubhub.com/restaurant/halal5-10714-w-bellfort-st-houston/401673" target="blank">Order Online</a></li>
+                    </ul>
+                    <h4 id="telCollapsed"><span class="glyphicon glyphicon-phone-alt"></span> 1.855.5.HALAL5</h4>
+                </div>
+                <h4 id="tel"><span class="glyphicon glyphicon-phone-alt"></span> 1.855.5.HALAL5</h4>
+            </nav>
+        </div>
+        <div class="intro" class="container-fluid">
+            <div class="row">
+                <div id="intro"class="col-lg-12 col-md-12">
+                    <img class="img-responsive"src="assets/images/logo.png" alt="Halal5 Logo">
+                </div>
+            </div>
+            <div id="sloganBanner">
+            </div>
+            <div id="slogan" class="container">
+                <h3 class="text-center">Fresh<span class="dot">.</span>Fast<span class="dot">.</span>Healthy</h3>
+                <h1 class="text-center">Make your event memorable with our catering!</h1>
+                <div class="row text-center">
+                    <a class="text-center cateringBtn">Order Catering</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="topBtn">
+           <center>
+            <a id="topBtn" href="#Home"><span class="glyphicon glyphicon-triangle-top text-center"></span><br>Top</a>
+           </center>
+        </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>Order Catering</h2>
+        </div>
+        <div class="modal-body">
+            <div id="cateringSuccessMsg"></div>
+            <center><small> *One time truck roll-out fee: $500 each event</small><br></center>
+          <form role="form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" name="name" id="usrname" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="telInput">Telephone:</label>
+              <input type="tel" class="form-control" name="tel" id="telInput" required>
+            </div>
+            <div class="form-group">
+              <label for="eventLoc">Event Location:</label>
+              <input type="text" class="form-control" name="location" id="eventLoc">
+            </div>
+            <div class="form-group">
+              <label for="eventDate">Event Date & Time:</label>
+              <input type="datetime-local" class="form-control" name="eventTime" id="eventDate">
+            </div>
+            <div class="form-group">
+              <label for="numGuests">Number of Attendees</label>
+              <input type="number" class="form-control" name="guests" id="numGuests" required>
+            </div>
+            <div class="form-group">
+              <label for="text">Event Details:</label>
+              <br>
+              <textarea width="100%" name="text" id="cateringMsg"></textarea>
+            </div>
+            <button type="submit" class="cateringBtn" id="cateringSubmit"><span class="glyphicon glyphicon-send"></span> Send Order</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="cateringBtn" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+    </div>
+<!--main-->
+<main>
+    <!--aboutUs-->
+    <div id="aboutUs"class="container">
+        <div class="row">
+            <h1>HALAL5</h1>
+            <div id="aboutUsContent"class="col-lg-6 col-md-6 col-sm-12">
+                <h1 id="aboutUsHeader">It's what's on the inside <br>that counts!
+                </h1>
+                <p id="aboutUsP"class="text-left">Our goal has always been to delight our customers with unparalleled hospitality and mouthwatering food at unbeatable prices. Our vision is to become the dominant and best American Halal Food restaurant in the world. 
+                    Simply put, our success rests upon our dedication to our customers. Our customers are from every walk of life, and it gives us great pride to see such diversity reflected in our long lines. We firmly believe in treating every person who comes to us with appreciation, honor, dignity, and respect. We teach this concept to everyone who comes to work at Halal 5.
+                    To us, customer service goes beyond our restaurants, it is who we are and this principle is ingrained in all our partners.
+                </p>
+            </div>
+            <div id="fbFeed"class="col-lg- 5 col-md-5 col-sm-5">
+            <div class="fbFeed">
+                <h1 id="fbFeedHeader" class="text-left">Follow Us!</h1>
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F10714westbellfort%2F&tabs=timeline&width=250&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="250" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Menu-->
+    <div id="menu" class="col-lg-12 col-md-12 col-sm-12 text-center container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="menuHeader" class="container">Our Menu</h1>
+            </div>
+        </div>
+    <div class="container">
+        <div id="menuContent" class="row menuContent">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <p>
+                    We at Halal 5 are the pioneers of American Halal Food. American Halal Food features a flavor profile that can’t be replicated in any other cuisine format, featuring flawlessly cooked, premium quality Halal meats that are seasoned to perfection and a melting pot of Middle Eastern and Mediterranean flavors that are sure to delight.
+                </p>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="row menuItems">  
+            <div class="col-lg-12 category text-center">
+                <h2>
+                    Chicken Entrées
+                </h2>
+            </div>
+            <div class="col-lg-12 hr menu"></div>
+        </div>
+        <div class="row chkItems">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkShawarmaWrapT.jpg" alt="Chicken Shawarma Wrap"> <b>Chicken Shawarma Wrap</b><br><small>With freshly cut lettuce, tomatoes, cucumbers, onions, white and red sauce.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkORiceT.jpg" alt="Chicken Over Rice"> <b>Chicken Over Rice</b><br><small>Yellow zeera rice with freshly cut lettuce, tomatoes, onions, cucumber, white and red sauce.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkBurgerT.jpg" alt="Chicken Burger"> <b>Grilled Chicken Burger</b><br><small>Chicken fillet with mayo, ketchup, lettuce and tomatoes.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+
+            </div><br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkQuesadillaT.jpg"alt="Chicken Quesadilla"> <b>Chicken Quesadilla</b><br><small>Onions, tomatoes and spicy sauce with cheese.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkBotiRollT.jpg" alt="Chicken Boti Roll"> <b>BBQ Chicken Boti Paratha Roll</b><br><small>Chicken cubes, onion, tomatoes and special chutney.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkWingsT.jpg" alt="Chicken Wings"> <b>Chicken Wings</b><br><small>4 pieces of fresh chicken bone-in wings with choice of sauce.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                    <h4 class="col-sm-9">
+                        <img class="img-responsive thumbnail" src="assets/images/entrees/chkStripsT.jpg" alt="Chicken Strips"> <b>Chicken Strips</b><br><small>4 pieces of fresh chicken breast tenderlions.</small></h4>
+                    <h4 class="col-sm-3">$5.99</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row menuItems">  
+            <div class="col-lg-12 category text-center">
+                <h2>
+                    Beef Entrées
+                </h2>
+            </div>
+            <div class="col-lg-12 hr menu"></div>
+        </div>
+        <div class="row bfItems">
+                <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/beefShawarmaWrapT.jpg" alt="Beef Shawarma Wrap"> <b>Beef Shawarma Wrap</b><br><small>With freshly cut lettuce, tomatoes, cucumbers, onions, white and red sauce.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/beefOverRiceT.jpg" alt="Beef Over Rice"> <b>Beef Over Rice</b><br><small>Yellow zeera rice with freshly cut lettuce, tomatoes, onions, cucumber, white and red sauce.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/burgerT.jpg" alt="Burger"> <b>Beef Burger</b><br><small>6oz. patty, grilled onions, cheese, mayo, ketchup, lettuce and tomatoes.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+        
+                    </div><br>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/QuesadillaT.jpg" alt="Beef Quesadilla"> <b>Beef Quesadilla</b><br><small>Onions, tomatoes and spicy sauce with cheese.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/beefRollT.jpg" alt="Beef Kabab Roll"> <b>Kabab Roll</b><br><small>Ground beef marinated with spices, served with onions, tomatoes and special chutney.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                            <h4 class="col-sm-9">
+                                <img class="img-responsive thumbnail" src="assets/images/entrees/beefTacosT.jpg" alt="Beef Tacos"> <b>Beef Tacos</b><br><small>3 corn tortillas, onion, tomatoes and taco sauce.</small></h4>
+                            <h4 class="col-sm-3">$6.99</h4>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 text-left">
+                <h4 class="col-sm-9">
+                    <img class="img-responsive thumbnail" src="assets/images/entrees/gyro.jpg" alt="Gyro"> <b>Gyro Wrap</b><br><small>Fresh shaved beef strips in pita with lettuce, tomatoes and tzatziki sauce.</small></h4>
+                <h4 class="col-sm-3">$6.99</h4>
+            </div>
+        </div>
+        </div>
+        <div class="row menuItems">  
+            <div class="col-lg-12 category text-center">
+                <h3>
+                    Sides & Beverages
+                </h3>
+            </div>
+            <div class="col-lg-12 hr menu"></div>
+        </div>
+        <div class="row sideItems">
+            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                <h4 class="col-sm-9">Fries</h4>
+                <h4 class="col-sm-3">$1.50</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                    <h4 class="col-sm-9">Soda</h4>
+                    <h4 class="col-sm-3">$1.50</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                <h4 class="col-sm-9">Bottled Water</h4>
+                <h4 class="col-sm-3">$1.00</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                    <h4 class="col-sm-9">Chai</h4>
+                    <h4 class="col-sm-3">$1.00</h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+            </div>
+            <br>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <h3><a class="text-center cateringBtn">Cater With Us!</a><br><br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+            </div>
+            
+        </div>
+           
+    </div>
+    </div>
+    <!--Loyalty-->
+    <div id="loyalty" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>Join Our Loyalty Program<br><small>Get special offers when you sign up!</small></h1>
+            <h6 id="successMsg"></h6>
+            <form id="loyaltyForm">
+                <input class="form-control" id="loyalEmail" type="text" placeholder="Enter your email">
+                <button class="btn" id="joinBtn" type="submit">Join</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</main>
+<!--Footer-->
+<div class="modal fade" id="franModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>Franchise Opportunity</h2>
+        </div>
+        <div class="modal-body">
+            <center><small>Our vision is to provide franchise opportunity to small business owners and entrepreneurs – our goal is to take quality affordable healthy halal food to our youth and generations to come- we will always have our five-dollar menu with several items to choose from.
+                Most fast food franchises are very expensive and will cost your arm and leg. 
+                Halal5 is not only affordable for customers, it will be very affordable to franchisees- our goal is to take this franchise nationwide inshallah
+                Team halal5
+                Our franchise director: we have experienced franchise director with back ground of operating burger king, what a burger, sonic and Wendy’s.
+                Our operations manager: has years of experience in retail industry and food related businesses
+                Accounting: our accounts are handled by accounting specialist.
+                Marketing: we have a marketing team continuously working on company’s image and branding
+                Our cook staff: we have trained licensed certified professionals working for us- they are not only food oriented but all of them are people person
+                </small><br><br></center>
+          <form role="form">
+            <div class="form-group">
+              <label for="franName">Name:</label>
+              <input type="text" class="form-control" id="franName" required>
+            </div>
+            <div class="form-group">
+              <label for="franEmail">Email:</label>
+              <input type="text" class="form-control" id="franEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="FranTelInput">Telephone:</label>
+              <input type="tel" class="form-control" id="franTelInput" required>
+            </div>
+            <div class="form-group">
+              <label for="franMessage">Message:</label>
+              <br>
+              <textarea name="franMessage" width="100%" id="franMessage"></textarea>
+            </div>
+            <button type="submit" class="franBtn" id="franSubmit"><span class="glyphicon glyphicon-send"></span> Send</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="franBtn" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--ContactUs-->
+    <footer class="container-fluid">
+        <div id="contactUs">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 footerLogo">
+                    <a href="index.html"><img id="footerLogo"src="assets/images/logo2.png" alt="Contact Info Halal5 Logo"></a><br><br>
+                    <div class="form-group">
+                        <label for="locations">Choose location:</label>
+                        <select id="locations">
+                            <option>Halal5 W. Bellfort Truck</option>
+                            <option>Halal5 Harwin Truck</option>
+                            <option>Halal5 Restaurant</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="contactInfo" class="col-md-5 col-sm-12">
+                    <h2 id="contactHeader">Come See Us</h2>
+                    <h4>
+                        10714 West Bellfort St.<br>
+                        Houston, Texas 77099<br>
+                    </h4>
+                    <h4><span class="glyphicon glyphicon-phone"></span> 832.617.7817</h4>
+                    <h4><a href="mailto:info@halal5.com?subject=Question&body=Hi!"><span class="glyphicon glyphicon-envelope"></span> info@halal5.com</a></h4>
+                    <h4><a href="#franchise" id="franInfo"><span class="glyphicon glyphicon-globe"></span> Franchise Info.</a></h4>
+                    <h4><span class="glyphicon glyphicon-time"></span> Hours<br><h5>Sunday - Saturday: 11AM - 12AM</h5></h4>
+
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <h2 id="contactHeader">Follow Us!</h2>
+                    <a id="fbLogo" href="https://www.facebook.com/10714westbellfort/"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                </div>
+            <div class="row copyright">
+                <div class="col-md-4 col-sm-4">
+                    <h6><small style="color:black; font-weight: bold;">Engineered by</small>
+                    <a href="https://www.osmannaseer.com"><img id="siteCredits" class="img-responsive"src="assets/images/siteCredit.png" alt="Site Credits | Osman Naseer.com - Web Developer"></a>
+                    </h6>
+                </div>
+                <div class="col-md-4 col-sm-4 text-center copyrightText">
+                    Copyright © Halal5 - All Rights Reserved 2018
+                </div>
+                <div class="col-md-4 col-sm-4">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

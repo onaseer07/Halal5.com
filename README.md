@@ -14,7 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### [](https://github.com/onaseer07/Halal5.com#prerequisites)Prerequisites
 
-MUA is built using HTML 5, CSS 3, Bootstrap, jQuery, Firebase Real-time Database. To test this application, just clone the repository and use your own provided Firebase API key to configure, and store objects to DB. 
+Halal5.com is built using HTML 5, CSS 3, Bootstrap, jQuery, Firebase Real-time Database. To test this application, just clone the repository and use your own provided Firebase API key to configure, and store objects to DB. 
 
 ## [](https://github.com/onaseer07/Halal5.com)Built Using
 
